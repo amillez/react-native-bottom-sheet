@@ -61,10 +61,15 @@ The internal `Portal` keeps its name and shape.
 Not changed: native sheet code on both platforms, `nativeOverlay`, close request
 routing, and every `BottomSheet` / `ModalBottomSheet` prop.
 
-`lib/` is committed on this branch so apps can depend on a commit
-(`github:amillez/react-native-bottom-sheet#<sha>`) without running this repo's
-bun + lefthook `prepare` step. Rebuild it with `bun run prepare` after changing
-`src/`.
+Distribution changes, so apps can depend on a commit
+(`github:amillez/react-native-bottom-sheet#<sha>`):
+
+- `lib/` is committed. Rebuild it with `bun run build` after changing `src/`,
+  and commit the output with the source change.
+- There is no `prepare` script. Upstream's ran `lefthook install && bob build`;
+  pnpm refuses to install a git-hosted package with a build script unless the
+  app allowlists it, and running it would need bun and a git checkout. Run
+  `bun run hooks` once in a clone to install the git hooks.
 
 ## What to verify when upgrading teleport or rebasing
 

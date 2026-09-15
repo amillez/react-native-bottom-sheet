@@ -37,7 +37,8 @@
   "scripts": {
     "example": "bun run --filter @swmansion/react-native-bottom-sheet-example",
     "clean": "del-cli lib",
-    "prepare": "lefthook install && bob build",
+    "build": "bob build",
+    "hooks": "lefthook install",
     "test:android": "bun run test:android:prepare && bun run test:android:unit",
     "test:android:prepare": "bun run --cwd example expo prebuild --platform android --no-install",
     "test:android:instrumented:assemble": "./example/android/gradlew --project-dir example/android :swmansion_react-native-bottom-sheet:assembleDebugAndroidTest",
