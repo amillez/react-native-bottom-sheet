@@ -271,9 +271,10 @@ export const BottomSheet = (props: BottomSheetProps) => {
         <NativeView
           pointerEvents="box-none"
           style={[
-            // Inline (and portal) sheets fill their container — the portal
-            // host spans the provider, so a modal sheet's canvas is the real
-            // provider extent, laid out by Fabric in this window. In
+            // Inline (and portal) sheets fill their container — the teleport
+            // portal view takes the size of the provider's host, so a modal
+            // sheet's canvas is the real provider extent, laid out by Fabric
+            // in this window. In
             // native-overlay mode the host is reparented into a separate
             // full-screen window whose measured size reaches the shadow tree
             // via state; the window dimensions here are only the first-frame

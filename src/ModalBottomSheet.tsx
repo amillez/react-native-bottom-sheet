@@ -22,9 +22,9 @@ export interface ModalBottomSheetProps extends BottomSheetProps {
    * modal screens (e.g. a React Navigation native-stack `presentation: "modal"`)
    * —instead of the `BottomSheetProvider` portal.
    *
-   * The portal renders into the provider's React tree, so a sheet opened from
-   * within a native modal screen is trapped inside that screen and cannot cover
-   * the full window. With `nativeOverlay`, the sheet is reparented natively into
+   * The portal host is a view mounted by the provider in the React Native root,
+   * so a sheet opened from within a native modal screen is drawn beneath that
+   * screen and cannot cover the full window. With `nativeOverlay`, the sheet is reparented natively into
    * a window-level overlay (a `UIWindow`-attached container on iOS, a
    * full-screen transparent dialog on Android) that floats above the modal.
    *

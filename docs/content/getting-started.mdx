@@ -5,10 +5,11 @@ title: Getting started
 
 # Getting started
 
-1. Install React Native Bottom Sheet:
+1. Install React Native Bottom Sheet and its portal peer,
+   [`react-native-teleport`](https://github.com/kirillzyusko/react-native-teleport):
 
    ```sh
-   npm i @swmansion/react-native-bottom-sheet
+   npm i @swmansion/react-native-bottom-sheet react-native-teleport
    ```
 
 2. Wrap your app with `BottomSheetProvider`:
@@ -16,6 +17,9 @@ title: Getting started
    ```tsx
    const App = () => <BottomSheetProvider>{/* ... */}</BottomSheetProvider>;
    ```
+
+   If your app already mounts teleport's `PortalProvider` above it, pass
+   `renderPortalProvider={false}` so there is only one.
 
 The library provides two components: `BottomSheet` (inline) and
 `ModalBottomSheet` (modal). Both render their children as the sheet content,

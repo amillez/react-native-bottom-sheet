@@ -81,11 +81,13 @@
     "react": "19.2.3",
     "react-native": "0.85.3",
     "react-native-builder-bob": "0.41.0",
+    "react-native-teleport": "1.2.2",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "react-native": ">=0.76.0"
+    "react-native": ">=0.76.0",
+    "react-native-teleport": ">=1.2.2"
   },
   "workspaces": [
     "example"

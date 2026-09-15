@@ -147,12 +147,33 @@ Inline `BottomSheet`, iOS physical-keyboard Escape, accessibility dismiss
 actions, scrim taps, drag gestures, and programmatic index changes are outside
 this callback and keep their existing behavior.
 
+## Provider portal
+
+By default `ModalBottomSheet` renders through `BottomSheetProvider`’s portal,
+built on
+[`react-native-teleport`](https://github.com/kirillzyusko/react-native-teleport).
+The sheet’s React subtree stays where you declare `ModalBottomSheet`, so its
+content reads every context above that point—theme, i18n, navigation—and only
+the native view is reparented into a host the provider mounts after its
+children. UI mounted outside the provider draws above its sheets:
+
+```tsx
+<ToastProvider>
+  <BottomSheetProvider>{/* screens */}</BottomSheetProvider>
+</ToastProvider>
+```
+
+Pass `renderPortalProvider={false}` when the app already mounts teleport’s
+`PortalProvider` higher up. To present sheets through a portal of your own, pass
+a stable component as `portal`; the provider then mounts no host, and the
+component receives each sheet as `children`.
+
 ## Native overlay
 
-By default `ModalBottomSheet` renders through `BottomSheetProvider`’s portal.
-That portal lives in your React tree, so a sheet opened from a screen presented
-as a native modal (for example, a React Navigation native-stack screen with
-`presentation: 'modal'`) is confined to that screen and cannot cover it.
+The provider’s host lives in the React Native root, so a sheet opened from a
+screen presented as a native modal (for example, a React Navigation native-stack
+screen with `presentation: 'modal'`) is drawn beneath that screen and cannot
+cover it.
 
 Set `nativeOverlay` to present the sheet in a native overlay above
 everything—including native modal screens—so it always covers the full window.

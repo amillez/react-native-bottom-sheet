@@ -8,5 +8,9 @@ export type {
 export { ModalBottomSheet } from './ModalBottomSheet';
 export type { ModalBottomSheetProps } from './ModalBottomSheet';
 export { BottomSheetProvider } from './BottomSheetProvider';
+export type {
+  BottomSheetPortalComponent,
+  BottomSheetProviderProps,
+} from './BottomSheetProvider';
 export type { Detent, DetentValue } from './bottomSheetUtils';
 export { programmatic } from './bottomSheetUtils';
