@@ -38,7 +38,6 @@ android/app/libs
 android/keystores/debug.keystore
 .expo/
 .turbo/
-lib/
 ios/generated
 android/generated
 nitrogen/
